@@ -1,0 +1,19 @@
+import matplotlib.pyplot as plt
+
+# Count the number of stores per ZipCode
+store_counts = grocery_stores_data['ZipCode'].value_counts().sort_index()
+
+# Plotting the number of stores per ZipCode
+plt.figure(figsize=(15, 10))
+store_counts.plot(kind='barh', color='skyblue', edgecolor='black')
+plt.title('Количество магазинов по почтовым индексам', fontsize=20)
+plt.xlabel('Количество магазинов', fontsize=15)
+plt.ylabel('Почтовый Индекс', fontsize=15)
+plt.grid(axis='x')
+
+# Save the figure
+plot_path = 'mntdatastore_distribution_by_zipcode.png'
+plt.savefig(plot_path)
+plt.close()  # Closing the plot to avoid displaying it inline
+
+plot_path
